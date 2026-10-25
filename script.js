@@ -14,7 +14,12 @@ for (const food of favoriteFoods) {
 // "My #1 favorite food is Ramen" (copy/paste for all items)
 // "My #2 favorite food is Sushi"
 // ...etc.
-
+console.log("My #1 favorite food is " + favoriteFoods[0]);
+console.log("My #2 favorite food is " + favoriteFoods[1]);
+console.log("My #3 favorite food is " + favoriteFoods[2]);
+console.log("My #4 favorite food is " + favoriteFoods[3]);
+console.log("My #5 favorite food is " + favoriteFoods[4]);
+console.log("My #6 favorite food is " + favoriteFoods[5]);
 
 
 
@@ -23,12 +28,17 @@ for (const food of favoriteFoods) {
     // "Have you ever tried ____?"
     // "I always recommend ____ to friends."
     // "Trust me — ____ is delicious."
-
+function printFoodRecommendation(foodName) {
+  console.log(`Have you ever tried ${foodName}?`);
+  console.log(`I always recommend ${foodName} to friends.`);
+  console.log(`Trust me — ${foodName} is delicious.`);
 
 
 
 // 4b. Call the function at least 3 times
-
+printFoodRecommendation("Ramen");
+printFoodRecommendation("Sushi");
+printFoodRecommendation("Tacos");
 
 
 // Here's a list of 50 friends' favorite foods:
@@ -37,24 +47,48 @@ let friendFavorites = [
   ];
 
 // 5. Print out only foods that have an "a" in the name. For example, "Pizza" would not be included, but "Donuts" would be.
+for (const food of friendFavorites) {
+  if (food.toLowerCase().includes("a")) {
+    console.log(food);
+  }
+}
 
 
 
 // 6. Store the result in an array called foodsWithA. Print out the array.
+const foodsWithA = friendFavorites.filter(food => food.toLowerCase().includes("a"));
+console.log(foodsWithA);
 
 
 
 // 7. Create a new array longFoodNames for foods with names longer than 6 characters.
-
+const longFoodNames = friendFavorites.filter(food => food.length > 6);
 
 
 // 8. Create another array shortFoodNames for foods 6 characters or shorter.
-
+const shortFoodNames = friendFavorites.filter(food => food.length <= 6);
 
 
 // 9. Print both arrays and compare:
 // "There are more long-named foods." OR "There are more short-named foods."
+console.log("Long food names:", longFoodNames);
+console.log("Short food names:", shortFoodNames);
+
+if (longFoodNames.length > shortFoodNames.length) {
+  console.log("There are more long-named foods.");
+} else if (shortFoodNames.length > longFoodNames.length) {
+  console.log("There are more short-named foods.");
+} else {
+  console.log("There are the same number of long- and short-named foods.");
+}
 
 
 // 10. STRETCH: Find the longest food name and print:
 // "The longest food name in the list is ______ with ___ characters."
+let longestFood = friendFavorites[0];
+for (const food of friendFavorites) {
+  if (food.length > longestFood.length) {
+    longestFood = food;
+  }
+}
+console.log(`The longest food name in the list is ${longestFood} with ${longestFood.length} characters.`);
