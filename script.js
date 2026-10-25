@@ -4,8 +4,9 @@ const favoritefoods = ["Ramen", "Sushi", "Pizza", "Tacos", "Pasta",  "Hamburger"
 
 
 // 2. Loop through the list and print: "One of my favorite foods is ______."
-
-
+for (const food of favoriteFoods) {
+  console.log(`One of my favorite foods is ${food}.`);
+}
 
 
 
